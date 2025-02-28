@@ -1,5 +1,6 @@
 <?php
-include 'db.php';
+include(__DIR__ . '/../config/db.php');
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
@@ -8,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $pdo->prepare("INSERT INTO users (name, email) VALUES (?, ?)");
     $stmt->execute([$name, $email]);
 
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit;
 }
 ?>
